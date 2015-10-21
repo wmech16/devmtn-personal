@@ -1,0 +1,12 @@
+<div class = 'concerts-row row'>
+	<div class = 'container'>
+		<div class = 'concert-container col s12' ng-repeat = 'data in conData'>
+			<div class = 'concert-panel card-panel'>
+				<h2 class = 'con-date col s12'>{{data.start.date | date: short}}</h2>
+				<span class = 'art-name col s12'>{{artistInfo.name}}</span>
+				<span class = 'con-location col s12'>{{data.venue.displayName}}, {{data.location.city}}</span>
+				<a ng-href = '{{data.uri}}' target = '_blank'><button class = 'buy-tickets'>Buy tickets!</button></a>
+			</div>
+		</div>
+	</div>
+</div>

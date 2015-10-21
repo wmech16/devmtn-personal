@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app = 'musicProj'>
+<head>
+    <meta charset="UTF-8">
+    <title>Porch Swing</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="css/artiststyle.css">
+    <link rel="stylesheet" href="css/searchstyle.css">
+    <link rel="stylesheet" href="css/albumstyle.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header ng-controller = 'headerCtrl' class = "site-header">
+        <nav class = 'header-nav'>
+            <div class = "nav-wrapper">
+                <a href="#/home" class = "logo left">Logo</a>
+                <ul id = "nav-btns" class = "right">
+                <li class = 'pic'><a href = "#"><img class = 'profile-pic' ng-src="{{currentUser.profilePic}}"></a></li>
+                    <li class = 'mag'><a href = "#/search"><i class="fa fa-search fa-lg"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <div ui-view></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js"></script>
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+    <script src = "app/app.js"></script>
+    <script src="starstpls.js"></script>
+    <script src = "app/controllers/mainCtirl.js"></script>
+    <script src="app/controllers/searchCtrl.js"></script>
+    <script src="app/controllers/artistCtrl.js"></script>
+    <script src="app/controllers/headerCtrl.js"></script>
+    <script src="app/controllers/albumCtrl.js"></script>
+    <script src = "app/services/homeService.js"></script>
+    <script src="app/services/artistService.js"></script>
+    <script src="app/services/albumService.js"></script>
+</body>
+</html>

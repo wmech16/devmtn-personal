@@ -1,0 +1,16 @@
+<div class = 'albums-row row'>
+		<div class = 'container'>
+			<div class = 'album-row col s12 m6 l3' ng-repeat = 'info in albumInfo'>
+				<div class = 'alcard alsmall'>
+					<div class = 'alcard-image'>
+						<a><img class = 'album-img' ng-src = '{{info.images[1].url}}' ng-click = 'goToAlbum(info)'></a>
+					</div>
+					<div class = 'alcard-content'>
+						<span class = 'card-title album-title'>{{info.name}}</spam>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+</div>

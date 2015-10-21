@@ -1,0 +1,18 @@
+
+<div class = 'container'>
+	<div class = 'top-artist'>
+		<a target = "_blank" ng-href = '{{artistInfo.external_urls.spotify}}'><div class = 'artist-img' ng-style = "{ background: 'url({{artistInfo.images[1].url}}) no-repeat', 'background-size': 'cover', 'background-position': 'center center'}" >
+		</div></a>
+		<h1 class = 'artist-name'>{{artistInfo.name}}</h1>
+	</div>
+
+	<nav class = 'artist-nav'>
+		<ul class = 'nav-list'>
+			<a ui-sref = 'artist.albums'><li>Albums</li></a>
+			<a ui-sref = 'artist.concerts'><li>Concerts</li></a>
+			<a ui-sref = 'artist.similar'><li>Similar Artists</li></a>
+		</ul>
+	</nav>
+	</div>
+	
+	<div ui-view></div>

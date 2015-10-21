@@ -1,0 +1,15 @@
+<div class = 'container'>
+	<div class = 'cont'>
+		<form class = 'search-form' ng-submit = 'findArtistData()'>
+			<span class = 'icon'><i class = 'fa fa-search'></i></span>
+			<input type = 'search' ng-model= 'searchArtist' id = 'search' placeholder = 'Search...' />
+		</form>
+	</div>
+	<div class = 'list-row'>
+		<div class = 'artist-search-cont col s12'>
+			<div class = 'artist-search' ng-repeat = 'artist in artistData' ng-click = 'getArtistData(artist.id, artist.name)'> 
+				<span class = "click-artist">{{artist.name}}</span> <i class="hearts right fa fa-heart-o"></i>
+			</div>
+		</div>
+	</div>
+</div>

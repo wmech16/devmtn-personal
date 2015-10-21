@@ -1,0 +1,115 @@
+.acard {
+    position: relative;
+    overflow: hidden;
+    margin: 0.5rem 0 1rem 0;
+    border-radius: 2px; }
+    .acard .acard-title {
+        font-size: 24px;
+        font-weight: 300; }
+    .acard.small {
+        position: relative; }
+        .acard.small .acard-image {
+            overflow: hidden;
+        }
+        .acard.small .acard-content {
+            overflow: hidden;
+        }
+
+.acard.asmall {
+    height: 450px;
+    width: 350px;
+    box-shadow: 0 3px 2px 1px rgba(0, 0, 0, 0.2), 0 3px 2px 1px rgba(0, 0, 0, 0.19); 
+    margin: 0 auto 20px auto;}
+    .acard.asmall .acard-image {
+    	height: 350px; }
+    .acard.asmall .acard-content {
+    	height: 100px;
+    	background-color: #555758 }
+    .acard .acard-image {
+    	position: relative; }
+    	.acard .acard-image img {
+    		display: block;
+    		border-radius: 2px 2px 0 0;
+    		position: relative;
+    		left: 0;
+    		right: 0;
+    		top: 0;
+    		bottom: 0;
+    		width: 100%;
+        height: 100%; }
+    	.acard .acard-image .acard-title {
+    		position: absolute;
+    		bottom: 0;
+    		left: 0;
+    		padding: 10px; }
+    .acard .acard-content {
+    	padding: 20px;
+    	border-radius: 0 0 2px 2px; }
+    	.acard .acard-content p {
+    		margin: 0;
+        font-size: 18px; }
+    	.acard .acard-content .acard-title {
+    		line-height: 10px;
+    	}
+
+
+.review-box {
+    box-sizing: border-box;
+    padding-top: 10px;
+    padding-left: 10px;
+    background-color: #555758;
+    border: none;
+    font-size: 18px;
+    color: #bdbdbd;
+    box-shadow: 0 3px 2px 1px rgba(0, 0, 0, 0.2), 0 3px 2px 1px rgba(0, 0, 0, 0.19);
+    border-radius: 2px;
+}
+
+.review-box:focus {
+    outline:none;
+}
+
+.review-title {
+    width: 300px;
+    height: 30px;
+    background-color: #555758;
+    border: none;
+    border-radius: 2px;
+    color: #bdbdbd;
+    box-shadow: 0 3px 2px 1px rgba(0, 0, 0, 0.2), 0 3px 2px 1px rgba(0, 0, 0, 0.19);
+    padding-left: 10px;
+}
+
+.glyphicon-star {
+  color:#00b0ff;
+}
+
+.glyphicon-star, .glyphicon-star-empty {
+    font-size: 18px;
+
+}
+
+.rating-text {
+    font-size: 15px;
+    color: #bdbdbd;
+}
+
+:focus {
+  outline: none !important;
+}
+
+.submit-review {
+    background-color: #00b0ff;
+    width: 100px;
+    height: 25px;
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.alreview {
+    background-color: #555758;
+    color:#bdbdbd;
+}

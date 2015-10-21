@@ -1,0 +1,43 @@
+<div class='album-row row'>
+    <div class='container'>
+         <div class='album-art col s4'>
+            <div class='acard asmall'>
+                <div class='acard-image'>
+                    <a ng-href='{{albumData.external_urls.spotify}}' target='_blank'><img class='album-img' ng-src='{{albumData.images[1].url}}'></a>
+                </div>
+                <div class='acard-content'>
+                    <span class='rating-text'>Your Rating:</span>
+                    <uib-rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></uib-rating>
+                    <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span><br>
+                    <br>
+                    <span class='rating-text'>Overall Rating:</span>
+                    <uib-rating ng-model="overall" max="max" readonly="!isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></uib-rating>
+                </div>
+            </div>
+        </div>
+        <div class = 'album-contains col s6'>
+            <form>
+                <input class = 'review-title' placeholder = 'Review Title'><br>
+                <br>
+                <textarea class = 'review-box' rows = '10' cols = '50' placeholder = 'Leave a review for "{{albumData.name}}"'></textarea><br>
+                <button  ng-click = 'test()' class = 'submit-review'>Submit!</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class = 'row'>
+    <div class = 'container'>
+        <h1 class = 'reviews-text' col s12>Reviews</h1>
+    </div>
+</div>
+
+<div class = 'row'>
+    <div class = 'container'>
+        <div class = 'review-cont col s12 m6 l6'>
+            <div class = 'alreview card-panel'>
+                
+            </div>
+        </div>
+    </div>
+</div>
