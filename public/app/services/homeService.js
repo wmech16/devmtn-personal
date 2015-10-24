@@ -30,27 +30,38 @@ app.service('homeService', function ($http) {
         
     };
     
-    this.newReleases = function() {
-        var url = 'https://api.spotify.com/v1/browse/new-releases&market=US'
-        return $http({
-            method: 'GET',
-            url: url
-        }).then(function(newReleases) {
-            console.log(newReleases);
-        })
-    }
+    // this.newReleases = function() {
+    //     var url = 'https://api.spotify.com/v1/browse/new-releases?country=US'
+    //     return $http({
+    //         method: 'GET',
+    //         url: url
+            
+    //     }).then(function(newReleases) {
+    //         console.log(newReleases);
+    //     })
+    // }
 
 
     this.getCurrentUser = function() {
         return $http.get('http://localhost:3000/currentUser')
-        .then(function(response){
-            return response
+    }
+    
+    this.getRecentReviews = function() {
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/review'
+        }).then(function(res) {
+            return res.data;
         })
     }
     
-    this.getReviews = function() {
-        return $http.get('http://localhost:3000/review').then(function(res) {
-            return res.data[0];
+    this.getHighest = function() {
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/album'
+        }).then(function(res) {
+            return res.data;
         })
     }
+   
 })

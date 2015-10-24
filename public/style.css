@@ -478,6 +478,7 @@ h6 {
 	padding: 20px;
 	margin: 0 auto 20px auto;
 	border-radius: 2px;
+  border: 2px solid #00b0ff;
 }
 
 .reviewed-text {
@@ -507,5 +508,29 @@ h6 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  border: 1px solid #00b0ff;
+}
+
+.review-text {
+  word-wrap: break-word;
+}
+
+.recent-review-title {
+  word-wrap: break-word;
+  font-size: 25px;
+  color: #00b0ff;
+}
+
+.review-score {
+  color: #00b0ff;
+  font-size: 25px;
+}
+
+.recent-album {
+  padding-right: 2px;
+}
+
+.recent-artist {
+  padding-left: 2px;
 }
 

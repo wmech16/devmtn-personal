@@ -2,6 +2,7 @@
 	width: 100px;
 	height: 100px;
 	border-radius: 50px;
+	border: 3px solid #00b0ff;
 	box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.2), 0 3px 2px 1px rgba(0, 0, 0, 0.19);
 }
 
@@ -110,6 +111,7 @@
 
 .concert-panel {
 	background-color: #555758;
+	
 }
 
 .con-date {
@@ -119,10 +121,12 @@
 
 .art-name {
 	font-size: 18px;
+	color: #2D2E30;
 }
 
 .con-location {
 	font-size: 15px;
+	color: #bdbdbd; 
 }
 
 .buy-tickets {

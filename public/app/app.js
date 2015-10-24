@@ -1,32 +1,28 @@
-var app = angular.module('musicProj', ['ui.router', 'ui.bootstrap']);
+var app = angular.module('musicProj', ['ui.router']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
     
     $stateProvider
-        // .state('login', {
-        //     url: '/login',
-        //     templateUrl: 'app/views/landingView.html',
-        //     controller: 'mainCtrl',
-        //     resolve: {
-        //         user: function (homeService) {
-        //             console.log('something')
-        //             return homeService.getCurrentUser().then(function (res) {
-        //                 console.log(res.data)
-        //                 return res.data
-        //             })
-        //         }
-        //     }
-        // })
-        .state('/home', {
+        .state('login', {
+            url: '/login',
+            templateUrl: 'app/views/landingView.html',
+            controller: 'landingCtrl'
+                
+        })
+        .state('home', {
             url: '/home',
             templateUrl: 'app/views/homeTemp.html',
             controller: 'mainCtrl',
             resolve: {
-                reviewInfo: function(homeService) {
-                    return homeService.getReviews()
-                    }
+                recentReview: function(homeService) {
+                    return homeService.getRecentReviews();
+                },
+                highestRated: function(homeService) {
+                    return homeService.getHighest();
                 }
+            }
+        
     	})
         .state('search', {
         	url: '/search',
@@ -84,7 +80,29 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             resolve: {
                 albumData: function(albumService, $stateParams) {
                     return albumService.getAlbumInfo($stateParams.albumId);
+                },
+                getCurrentUser: function(homeService) {
+                    return homeService.getCurrentUser().then(function(res){
+                        return res.data;
+                    })
+                },
+                getAlbumsReviews: function(albumService, $stateParams) {
+                    return albumService.getAlbumsReviews($stateParams.albumId);
                 }
+            }
+        })
+        
+        .state('profile', {
+            url: '/profile',
+            templateUrl: 'app/views/profile.html',
+            controller: 'profileCtrl',
+            resolve: {
+                getCurrentUser: function(homeService, $stateParams) {
+                    return homeService.getCurrentUser($stateParams.id).then(function(res){
+                        return res.data;
+                    })
+                }
+                
             }
         })
 

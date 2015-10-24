@@ -1,12 +1,14 @@
 var mongoose = require('mongoose');
 
 var ReviewSchema = new mongoose.Schema({
-	albumId: { type: mongoose.Schema.Types.ObjectId, ref: 'Album' },
+	albumSpotifyId: { type: String },
+	artist: { type: String },
+	album: { type: String },
 	userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 	review: {
-		stars: { type: Number },
-		title: { type: String },
-		content: { type: String }
+		score: { type: Number, required: true },
+		title: { type: String, maxlength: 100, required: true },
+		content: { type: String, minlength: 120, required: true }
 	},
 	createdAt: { type: Date, default: Date.now }
 })

@@ -10,7 +10,7 @@
     width: 300px;
     height: 30px;
     background: #131313;
-    border: none;
+    border: 3px solid #00b0ff;
     font-size: 13px;
     color: #00b0ff;
     padding-left: 45px;
@@ -74,7 +74,7 @@
     margin-left: 8px;
     margin-top: 4px;
     z-index: 1;
-    color: #888888;
+    color: #00b0ff;
 }
 
 .cont {

@@ -84,9 +84,9 @@ app.get('/auth/spotify/callback',
 		res.redirect('/login');
 	});
 
-// app.get('/login', function(req, res){
-//   res.json(req.user);
-// });
+app.get('/login', function(req, res){
+  res.json(req.user);
+});
 
 app.get('/logout', function(req, res) {
 	req.logout();
@@ -97,21 +97,21 @@ app.get('/currentUser', function(req, res) {
 	res.send(req.user);
 })
 //REVIEW ENDPOINTS
-//app.get('/review', ReviewController.read);
+app.get('/review', ReviewController.read);
 app.post('/review/:albumId/:userId', ReviewController.create);
-app.get('/review', ReviewController.getReviews);
+// app.get('/review/:SpotifyId', ReviewController.getReviews);
 //app.get('/review/:id', ReviewController.show);
-//app.put('/review/:id', ReviewController.update);
+app.put('/review/:id', ReviewController.update);
 //app.delete('/review/:id', ReviewController.delete);
 
 //ALBUM ENDPOINTS
 app.post('/album', AlbumController.create);
-app.get('albums/:id', AlbumController.getAlbum);
+app.get('/album/:albumSpotifyId', AlbumController.getAlbum);
+app.get('/album', AlbumController.read);
 
-// app.get('/user', function(req, res) {
-// 	console.log(req.user);
-// 	return res.json(req.user);
-// })
+//USER ENDPOINTS
+app.get('/users/:userId', UserCtrl.getUser);
+
 
 //CONNECTIONS 
 

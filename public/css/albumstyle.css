@@ -2,7 +2,10 @@
     position: relative;
     overflow: hidden;
     margin: 0.5rem 0 1rem 0;
-    border-radius: 2px; }
+    border-radius: 2px; 
+    /*border: 1px solid #00b0ff;*/
+    };
+    
     .acard .acard-title {
         font-size: 24px;
         font-weight: 300; }
@@ -16,14 +19,14 @@
         }
 
 .acard.asmall {
-    height: 450px;
+    height: 550px;
     width: 350px;
     box-shadow: 0 3px 2px 1px rgba(0, 0, 0, 0.2), 0 3px 2px 1px rgba(0, 0, 0, 0.19); 
     margin: 0 auto 20px auto;}
     .acard.asmall .acard-image {
     	height: 350px; }
     .acard.asmall .acard-content {
-    	height: 100px;
+    	height: 200px;
     	background-color: #555758 }
     .acard .acard-image {
     	position: relative; }
@@ -54,15 +57,25 @@
 
 
 .review-box {
+    height: 400px;
+    width: 500px;
+    min-height: 400px;
+    resize: none;
     box-sizing: border-box;
     padding-top: 10px;
     padding-left: 10px;
     background-color: #555758;
     border: none;
+    /*border: 1px solid #00b0ff;*/
     font-size: 18px;
     color: #bdbdbd;
     box-shadow: 0 3px 2px 1px rgba(0, 0, 0, 0.2), 0 3px 2px 1px rgba(0, 0, 0, 0.19);
     border-radius: 2px;
+    /*word-wrap: break-word;*/
+}
+
+.noscroll {
+    overflow: hidden;
 }
 
 .review-box:focus {
@@ -74,19 +87,12 @@
     height: 30px;
     background-color: #555758;
     border: none;
+    /*border: 1px solid #00b0ff;*/
     border-radius: 2px;
     color: #bdbdbd;
     box-shadow: 0 3px 2px 1px rgba(0, 0, 0, 0.2), 0 3px 2px 1px rgba(0, 0, 0, 0.19);
     padding-left: 10px;
-}
-
-.glyphicon-star {
-  color:#00b0ff;
-}
-
-.glyphicon-star, .glyphicon-star-empty {
-    font-size: 18px;
-
+    font-size: 12px;
 }
 
 .rating-text {
@@ -112,4 +118,71 @@
 .alreview {
     background-color: #555758;
     color:#bdbdbd;
+}
+
+.select {
+  font-size: 16px;
+  position: relative;
+  display: inline-block;
+}
+
+.rating {
+    background-color: #555758;
+    border: 1px solid #00b0ff;
+    color: #00b0ff;
+    width: 150px;
+    height: 30px;
+    /*line-height: normal;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;*/
+}
+
+.outof {
+    font-size: 24px;
+    color: #2D2E30;
+    font-family: 'Roboto-Thin', 'Avenir-Ligh', sans-serif;
+    font-weight: 500;
+}
+
+.num-rate {
+    font-size: 40px;
+    padding-left: 15px;
+    color: #00b0ff;
+    font-family: 'Roboto-Thin', 'Avenir-Ligh', sans-serif;
+    font-weight: 400;
+}
+
+.alreview-title {
+    font-family: 'Roboto-Thin', 'Avenir-Ligh', sans-serif;
+    font-size: 24px;
+    color: #00b0ff
+}
+
+.alreview-score {
+    font-size: 24px;
+    color: #00b0ff;
+    padding-left: 5px;
+}
+
+.alreview-rating {
+    padding-top: 7px;
+    
+}
+
+.alreview-pic {
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    
+}
+
+.alreview-name {
+    padding-top: 20px;
+    padding-left: 6px;
+    color:#bdbdbd;
+}
+
+.alreview-content {
+    word-wrap: break-word;
 }

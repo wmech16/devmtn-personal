@@ -7,8 +7,8 @@
 	</div>
 	<div class = 'list-row'>
 		<div class = 'artist-search-cont col s12'>
-			<div class = 'artist-search' ng-repeat = 'artist in artistData' ng-click = 'getArtistData(artist.id, artist.name)'> 
-				<span class = "click-artist">{{artist.name}}</span> <i class="hearts right fa fa-heart-o"></i>
+			<div class = 'artist-search' ng-repeat = 'artist in artistData'> 
+				<span class = "click-artist" ng-click = 'getArtistData(artist.id, artist.name)'>{{artist.name}}</span> <i class="hearts right fa fa-heart-o"></i>
 			</div>
 		</div>
 	</div>

@@ -1,3 +1,5 @@
+var mongoose = require('mongoose');
+
 var Album = require('../models/album');
 
 module.exports.create = function(req, res) {
@@ -12,9 +14,8 @@ module.exports.create = function(req, res) {
 }
 
 module.exports.getAlbum = function(req,res) {
-	Album.findById(req.params.id)
-	.populate('reviews.review')
-	.populate('reviews.user')
+	Album.findOne({albumSpotifyId: req.params.albumSpotifyId})
+	.populate('reviews.review reviews.user')
 	.exec(function(err, album) {
 		if (err) {
 			console.log(err);
@@ -24,3 +25,23 @@ module.exports.getAlbum = function(req,res) {
 		res.send(album)
 	})
 }
+
+module.exports.read = function(req, res) {
+	Album.find()
+	.sort({ overallRating: 1 })
+	.limit(10)
+	.populate('reviews.review')
+	.exec(function(err, highestRated) {
+		if (err) return res.status(500).send(err);
+		res.status(200).json(highestRated);
+	})
+}
+
+
+
+// module.exports = {
+// 	create: function() {
+		
+// 	},
+// 	getAlbum: function
+// }

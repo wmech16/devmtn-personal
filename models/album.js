@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 
 var AlbumSchema = new mongoose.Schema({
-	spotifyId: { type: String },
-	title: { type: String },
+	albumSpotifyId: { type: String },
+	album: { type: String },
 	artist: { type: String },
 	imgUrl: { type: String },
 	spotifyPlayer: { type: String },
