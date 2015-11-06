@@ -1,6 +1,11 @@
 <div class = 'concerts-row row'>
 	<div class = 'container'>
-		<div class = 'concert-container col s12' ng-repeat = 'data in conData'>
+		<h1 class = 'no-con' ng-show = 'noCon' >{{conData.message}}</h1>
+		<div class = 'yes-con' ng-show = '!noCon'>
+		<div class = 'filter-contain'>
+		<input class="concert-filter" placeholder="Filter by City" ng-model = "concertSearch">
+		</div>
+		<div class = 'concert-container col s12' ng-repeat = 'data in conData.event | filter: concertSearch'>
 			<div class = 'concert-panel card-panel'>
 				<h2 class = 'con-date col s12'>{{data.start.date | date: short}}</h2>
 				<span class = 'art-name col s12'>{{artistInfo.name}}</span>
@@ -8,5 +13,6 @@
 				<a ng-href = '{{data.uri}}' target = '_blank'><button class = 'buy-tickets'>Buy tickets!</button></a>
 			</div>
 		</div>
-	</div>
+		</div>
+		</div>
 </div>

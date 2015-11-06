@@ -9,5 +9,5 @@ app.controller('headerCtrl', function ($scope, homeService) {
    			console.log(res.data)
    			$scope.currentUser =  res.data
    		})
-    })()         
+    })()          
 })

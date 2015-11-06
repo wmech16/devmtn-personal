@@ -8,7 +8,7 @@ var ReviewSchema = new mongoose.Schema({
 	review: {
 		score: { type: Number, required: true },
 		title: { type: String, maxlength: 100, required: true },
-		content: { type: String, minlength: 120, required: true }
+		content: { type: String, minlength: 50, required: true }
 	},
 	createdAt: { type: Date, default: Date.now }
 })

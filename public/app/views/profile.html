@@ -1,7 +1,26 @@
-<div class = 'container'>
-	<div class = 'top-profile' col s12>
-		<img class = 'your-pic' ng-src='{{getCurrentUser.profilePic}}'>
-	</div>
-	
+<ng-include src ="'app/views/headerView.html'"></ng-include>
+<div class = 'row'>
+	<div class = 'container'>
+		<div class = 'top-profile col s3'>
+			<img class = 'your-pic' ng-src='{{getCurrentUser.profilePic}}'><br>
+			<div class = 'logout-but-cont'>
+				<a href = "http://localhost:3000/logout"><input class = 'logout-but' type = 'submit' value = 'Logout'></a>
+				<div class = 'filter-contain1'>
+					<input class="concert-filter" placeholder="Filter Reviews" ng-model = "concertSearch">
+				</div>
+			</div>
+		</div>
+		<div class = 'profile-reviews col s9 offset-s3' ng-repeat = 'review in getReviews | filter: concertSearch'>
+		    <div class = 'alreview card-panel'>
+                <span class = 'alreview-title'>{{review.review.title}}</span><span class = 'alreview-score right'>{{review.review.score}}</span><span class = 'alreview-rating right'>Rating:</span><br>
+                <br>
+                <p class = 'alreview-content'>{{review.review.content}}</p><br>
+                <br>
+                <span class = 'alreview-name right'>{{review.album}}</span><span class = 'alreview-name right'>{{review.artist}} -</span>
+                <br>
+                
+                <span class = 'deleteclick' ng-click = 'removeReview(review._id)'>Delete</span>
+            </div> 
+		</div>
+	</div>	
 </div>
-	

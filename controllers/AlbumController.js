@@ -38,6 +38,11 @@ module.exports.read = function(req, res) {
 }
 
 
+module.exports.post = function(req, res) {
+	Album.overRating
+}
+
+
 
 // module.exports = {
 // 	create: function() {

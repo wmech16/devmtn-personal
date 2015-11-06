@@ -37,7 +37,7 @@ passport.use(new SpotifyStrategy({
     clientSecret: appSecret,
     callbackURL: "http://localhost:3000/auth/spotify/callback"
 }, function(accessToken, refreshToken, profile, done) {
-
+	console.log(11, profile);
     User.findOne({ spotifyId: profile.id }, function (findErr, foundUser) { 
     	console.log('err', findErr, 'user', foundUser)
     	if (findErr) return done(findErr, foundUser);
@@ -45,7 +45,9 @@ passport.use(new SpotifyStrategy({
     		var newUser = {
     			name: profile.displayName,
     			spotifyId: profile.id,
-    			profilePic: profile.photos[0]
+    			profilePic: profile.photos[0],
+    			accessToken: accessToken,
+    			refreshToken: refreshToken
     		};
     		User.create(newUser, function(createErr, createdUser) {
     			if (createErr) return done(createErr, null);
@@ -61,7 +63,11 @@ passport.use(new SpotifyStrategy({
 var app = express();
 app.use(bodyParser.json());
 app.use(cors());
-app.use(session({secret: 'super secret secret'}));
+app.use(session({
+	secret: 'super secret secret',
+	resave: true,
+    saveUninitialized: true
+}));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -70,19 +76,28 @@ app.use(express.static('./public'));
 
 app.get('/auth/spotify',
 	passport.authenticate('spotify', {scope: ['user-read-email', 
-		'user-read-private'], showDialog: true}),
+		'user-read-private', 'playlist-read-private'], showDialog: true}),
 	function(req, res) {
-		// console.log(req, res)
+		console.log(100, res)
 	});
 
 app.get('/auth/spotify/callback', 
 	passport.authenticate('spotify', { 
 		successRedirect: '/#/home',
-		failureRedirect: '/login' 
+		failureRedirect: '/#/login' 
 	}),
 	function(req, res) {
-		res.redirect('/login');
+		res.redirect('/#/login');
 	});
+
+
+var ensureAuthenticated = function(req, res, next) {
+    console.log('IM COOL!!!!!!!!!!!');
+	if (req.isAuthenticated()) { return next(); }
+	res.status(401).send();
+}
+
+
 
 app.get('/login', function(req, res){
   res.json(req.user);
@@ -90,27 +105,34 @@ app.get('/login', function(req, res){
 
 app.get('/logout', function(req, res) {
 	req.logout();
-	res.redirect('/login');
+	res.redirect('/#/login');
 })
 
 app.get('/currentUser', function(req, res) {
-	res.send(req.user);
+	res.send(req.user);	
 })
 //REVIEW ENDPOINTS
 app.get('/review', ReviewController.read);
+app.get('/review/:userId', ReviewController.getReviews);
 app.post('/review/:albumId/:userId', ReviewController.create);
+
 // app.get('/review/:SpotifyId', ReviewController.getReviews);
 //app.get('/review/:id', ReviewController.show);
 app.put('/review/:id', ReviewController.update);
-//app.delete('/review/:id', ReviewController.delete);
+app.delete('/review/:id', ReviewController.delete);
 
 //ALBUM ENDPOINTS
 app.post('/album', AlbumController.create);
 app.get('/album/:albumSpotifyId', AlbumController.getAlbum);
 app.get('/album', AlbumController.read);
+app.post('/album/:overallRating', AlbumController.post)
 
 //USER ENDPOINTS
 app.get('/users/:userId', UserCtrl.getUser);
+
+app.get('/isAuth', ensureAuthenticated, function(req, res) {
+	res.send(req.user);
+})
 
 
 //CONNECTIONS 
@@ -129,7 +151,5 @@ app.listen(port, function() {
 	console.log('Listening on port '+ port);
 });
 
-function ensureAuthenticated(req, res, next) {
-	if (req.isAuthenticated()) { return next(); }
-	res.redirect('/login');
-}
+
+

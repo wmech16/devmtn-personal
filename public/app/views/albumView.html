@@ -1,3 +1,4 @@
+<headerDirective></headerDirective>
 <div class='album-row row'>
     <div class='container'>
          <div class='album-art col s4'>
@@ -6,10 +7,12 @@
                     <a ng-href='{{albumData.external_urls.spotify}}' target='_blank'><img class='album-img' ng-src='{{albumData.images[1].url}}'></a>
                 </div>
                 <div class='acard-content'>
-                    <span class='rating-text'>Your Rating:</span><span class = 'num-rate your-rating'>{{getAlbumsReviews.</span><span class = 'outof'>/5.0</span>
+                    <span class='rating-text'>Your Rating:</span><span class = 'num-rate your-rating' ng-show = 'userRating'>{{userRating}}</span><span class = 'outof'></span>
                     <br>
                     <br>
-                    <span class='rating-text'>Overall Rating:</span><span class = 'num-rate overall-rate'>{{averageScore}}</span><span class = 'outof'>/5.0</span>
+                    <span class='rating-text'>Overall Rating:</span><span class = 'num-rate overall-rate'>{{averageScore}}</span><span class = 'outof'>
+                        
+                    </span>
                     
                 </div>
             </div>

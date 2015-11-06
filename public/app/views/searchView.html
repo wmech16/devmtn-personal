@@ -1,3 +1,5 @@
+<ng-include src ="'app/views/headerView.html'"></ng-include>
+
 <div class = 'container'>
 	<div class = 'cont'>
 		<form class = 'search-form' ng-submit = 'findArtistData()'>
@@ -8,8 +10,11 @@
 	<div class = 'list-row'>
 		<div class = 'artist-search-cont col s12'>
 			<div class = 'artist-search' ng-repeat = 'artist in artistData'> 
-				<span class = "click-artist" ng-click = 'getArtistData(artist.id, artist.name)'>{{artist.name}}</span> <i class="hearts right fa fa-heart-o"></i>
+				<span class = "click-artist" ng-click = 'getArtistData(artist.id, artist.name)'>{{artist.name}}</span> 
 			</div>
 		</div>
 	</div>
 </div>
+
+
+<!--<i class="hearts right fa fa-heart-o"></i>-->

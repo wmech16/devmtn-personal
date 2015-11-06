@@ -4,9 +4,9 @@ var UserSchema = new mongoose.Schema({
 	name: {type: String},
 	spotifyId: {type: String},
 	profilePic: {type: String},
-	reviews: [{
-		review: { type: mongoose.Schema.Types.ObjectId, ref: 'Review' }
-	}],
+	accessToken: {type: String},
+	refreshToken: {type: String},
+	reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
 	likes: [{ type: String }],
 	createdAt: { type: Date, default: Date.now }
 })

@@ -1,10 +1,7 @@
 var app = angular.module('musicProj');
 
 app.controller('artistCtrl', function ($scope, homeService, id, artistService, albumInfo, conData, relatedArt, $state, albumService) {
-  	// albumService.getAlbumInfo($stateParams.albumId).then(function(res) {
-  	// 	$scope.albumInfo = res;
-  	// 	console.log($scope.albumInfo);
-  	// }); 
+ 
 	$scope.artistInfo = id;
 	console.log('Artist Info', $scope.artistInfo);
 	var artistId = $scope.artistInfo.id;
@@ -12,7 +9,13 @@ app.controller('artistCtrl', function ($scope, homeService, id, artistService, a
 	console.log('Album Info', $scope.albumInfo);
 	// var albumId = $scope.albumInfo[0].id;
 	// console.log('Album Id', albumId)
-	$scope.conData = conData;
+	$scope.conData = conData
+	if (typeof $scope.conData === 'undefined' || (!('event' in $scope.conData))) {
+		$scope.noCon = true;
+		$scope.conData = {
+			message: 'This artist has no upcoming concerts :('
+		}
+	} 
 	$scope.relatedArt = relatedArt;
 	console.log('Related Artists', $scope.relatedArt);
 	console.log('Concert Data', $scope.conData);
@@ -40,6 +43,4 @@ app.controller('artistCtrl', function ($scope, homeService, id, artistService, a
     	})
     	
     }
-
-
 })

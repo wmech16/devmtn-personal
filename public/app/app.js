@@ -1,7 +1,7 @@
 var app = angular.module('musicProj', ['ui.router']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/login');
     
     $stateProvider
         .state('login', {
@@ -20,14 +20,31 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 },
                 highestRated: function(homeService) {
                     return homeService.getHighest();
+                },
+                user: function(homeService) {
+                    return homeService.auth().then(function(res) {
+                        return res;
+                    })
+                    
                 }
+//                newReleases: function(homeService) {
+//                    return homeService.newReleases();
+//                }
             }
         
     	})
         .state('search', {
         	url: '/search',
         	templateUrl: 'app/views/searchView.html',
-        	controller: 'searchCtrl'
+        	controller: 'searchCtrl',
+            resolve: {
+                user: function(homeService) {
+                    return homeService.auth().then(function(res) {
+                        return res;
+                    })
+                    
+                }
+            }
         })
         .state('artist', {
         	url: '/artist/:id',
@@ -47,6 +64,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 },
                 relatedArt: function(artistService, $stateParams) {
                     return artistService.getRelated($stateParams.id);
+                },
+                user: function(homeService) {
+                    return homeService.auth().then(function(res) {
+                        return res;
+                    })
+                    
                 }
                 // albumData: function(albumService, $stateParams) {
                 //     var id = "null";
@@ -58,19 +81,43 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         .state('artist.albums', {
             url: '/albums',
             templateUrl: 'app/views/artistAlbums.html',
-            controller: 'artistCtrl'
+            controller: 'artistCtrl',
+            resolve: {
+               user: function(homeService) {
+                    return homeService.auth().then(function(res) {
+                        return res;
+                    })
+                    
+                }
+            }
         })
 
         .state('artist.concerts', {
             url: '/concerts', 
             templateUrl: 'app/views/artistConcert.html',
-            controller: 'artistCtrl'
+            controller: 'artistCtrl',
+            resolve: {
+                user: function(homeService) {
+                    return homeService.auth().then(function(res) {
+                        return res;
+                    })
+                    
+                }
+            }
         })
 
         .state('artist.similar', {
             url: '/similar',
             templateUrl: 'app/views/artistSimilar.html',
-            controller: 'artistCtrl'
+            controller: 'artistCtrl',
+            resolve: {
+                user: function(homeService) {
+                    return homeService.auth().then(function(res) {
+                        return res;
+                    })
+                    
+                }
+            }
         })
 
         .state('artist.album', {
@@ -88,20 +135,38 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 },
                 getAlbumsReviews: function(albumService, $stateParams) {
                     return albumService.getAlbumsReviews($stateParams.albumId);
+                },
+                user: function(homeService) {
+                    return homeService.auth().then(function(res) {
+                        return res;
+                    })
+                    
                 }
+          
             }
         })
         
         .state('profile', {
-            url: '/profile',
+            url: '/profile/:userId',
             templateUrl: 'app/views/profile.html',
             controller: 'profileCtrl',
             resolve: {
-                getCurrentUser: function(homeService, $stateParams) {
-                    return homeService.getCurrentUser($stateParams.id).then(function(res){
-                        return res.data;
+                getCurrentUser: function(homeService) {
+                    return homeService.getCurrentUser().then(function(res){
+                        return res.data; 
+                   })
+                },
+                getReviews: function($stateParams, profileService) {
+                   console.log('profile resolve');
+                   return profileService.getUser($stateParams.userId);
+                },
+                user: function(homeService) {
+                    return homeService.auth().then(function(res) {
+                        return res;
                     })
+                    
                 }
+                
                 
             }
         })

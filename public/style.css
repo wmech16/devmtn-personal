@@ -5,7 +5,7 @@
 
 body,
 html {
-    height: 100%;
+    /*height: 100%;*/
     background-color: #2D2E30;
     margin: 0
 }
@@ -52,7 +52,8 @@ ul {
         display: inline-block;
         font-size: 2rem;
         padding: 0;
-        white-space: nowrap; }
+        white-space: nowrap; 
+        padding-top: 7px;}
 
     nav .logo.center {
         left: 50%;
@@ -77,7 +78,7 @@ ul {
 
 .mag {
   position: absolute;
-  top: 5px;
+  top: 25px;
   right: 50px;
 }
 
@@ -534,3 +535,38 @@ h6 {
   padding-left: 2px;
 }
 
+.login-contain {
+  background-color: #555758;
+  height: 500px;
+  width: 500px;
+  margin: 250px auto 0 auto;
+  border-radius: 2px;
+  text-align: center;
+    box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.2), 0 3px 2px 1px rgba(0, 0, 0, 0.19);
+}
+
+.login-welcome {
+  padding-top: 20px;
+}
+
+.login-text {
+  font-size: 18px;
+  color: #bdbdbd;
+  padding-top: 20px;
+}
+
+.login-but {
+  background-color: #00b0ff;
+  height: 50px;
+  width: 200px;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 15px;
+  box-shadow: 0 3px 2px 1px rgba(0, 0, 0, 0.2), 0 3px 2px 1px rgba(0, 0, 0, 0.19);
+}
+
+.login-but-cont {
+  padding-top: 70px;
+}

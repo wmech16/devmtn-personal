@@ -23,7 +23,7 @@ var app = angular.module('musicProj').service('albumService', function($http) {
 	// 	})
 	// }
 	
-	this.postReview = function(review, album, userId) {
+	this.postReview = function(review, album, userId, averageScore) {
 		console.log(userId)
 		var albumReview = {
 			albumSpotifyId: album.id,
@@ -69,4 +69,14 @@ var app = angular.module('musicProj').service('albumService', function($http) {
 		})
 	}
 	
+	this.getUser = function(userId) {
+		return $http ({
+			method: 'GET',
+			url: 'http://localhost:3000/users'+ userId
+		}).then(function(res) {
+			console.log(11, res)
+			return res;
+		})
+	}
+    
 });

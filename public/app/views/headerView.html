@@ -1,0 +1,11 @@
+<header ng-controller = 'headerCtrl' class = "site-header">
+	<nav class = 'header-nav'>
+		<div class = "nav-wrapper">
+			<a href="#/home" class = "logo left">PorchSwing.fm</a>
+			<ul id = "nav-btns" class = "right">
+			<li class = 'pic'><a ng-href = "#/profile/{{currentUser._id}}"><img class = 'profile-pic' ng-src="{{currentUser.profilePic}}"></a></li>
+				<li class = 'mag'><a href = "#/search"><i class="fa fa-search fa-lg"></i></a></li>
+			</ul>
+		</div>
+	</nav>
+</header>

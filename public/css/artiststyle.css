@@ -163,4 +163,18 @@
 	cursor: pointer;
 }
 
+.concert-filter {
+	width: 200px;
+	height: 25px;
+	background-color: #555758;
+	border-radius: 2px;
+	border: none;
+	color: #00b0ff;
+	font-size: 18px;
+}
+
+.filter-contain {
+	padding-bottom: 10px;
+	margin-left: 11px;
+}
 

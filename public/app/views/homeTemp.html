@@ -1,5 +1,9 @@
+<!--<header-directive></header-directive>-->
 
-<div class = 'highest row'>
+
+<ng-include src ="'app/views/headerView.html'"></ng-include>
+
+<!--<div class = 'highest row'>
     <div class = 'container'>
         <h4 class = 'highest-text col s12'>Highest Rated Albums</h4>
         <div class ='highest-contain col s12 m6 l6'>
@@ -8,7 +12,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <div class='reviewed row'>
     <div class='container'>
         <h4 class="reviewed-text col s12">Recently Reviewed</h4>
@@ -19,7 +23,6 @@
                <span class = 'recent-review-title'>{{recentReview[0].review.title}}</span><span class = 'review-score right'> {{recentReview[0].review.score}}</span><br>
                 <span class= 'review-text'>"{{recentReview[0].review.content}}"</span><br>
                 <br>
-                <!--<span class= 'recent-review-spotifyname' ng-show = '!noName'>{{spotifyId}}</span>-->
                 <span class = 'alreview-name right' > {{recentReview[0].userId.spotifyId}}</span><img class = 'alreview-pic right' ng-src = '{{recentReview[0].userId.profilePic}}'><br>
                 <br>
                 
@@ -32,7 +35,7 @@
                 <span class = 'recent-review-title'>{{recentReview[1].review.title}}</span><span class = 'review-score right'> {{recentReview[1].review.score}}</span><br>
                 <span class= 'review-text'>"{{recentReview[1].review.content}}"</span><br>
                 <br>
-                <span class = 'alreview-name right' > {{recentReview[0].userId.spotifyId}}</span><img class = 'alreview-pic right' ng-src = '{{recentReview[0].userId.profilePic}}'><br>
+                <span class = 'alreview-name right' > {{recentReview[1].userId.spotifyId}}</span><img class = 'alreview-pic right' ng-src = '{{recentReview[1].userId.profilePic}}'><br>
                 <br>
             </div>
         </div>

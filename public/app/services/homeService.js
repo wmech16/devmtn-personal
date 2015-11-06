@@ -1,6 +1,6 @@
 var app = angular.module('musicProj');
 
-app.service('homeService', function ($http) {
+app.service('homeService', function ($http, $state) {
     var currentArtist = "";
     this.getCurrentArtist = function() {
         return currentArtist;
@@ -30,16 +30,16 @@ app.service('homeService', function ($http) {
         
     };
     
-    // this.newReleases = function() {
-    //     var url = 'https://api.spotify.com/v1/browse/new-releases?country=US'
-    //     return $http({
-    //         method: 'GET',
-    //         url: url
+     this.newReleases = function() {
+         var url = 'https://api.spotify.com/v1/browse/new-releases?country=US'
+         return $http({
+             method: 'GET',
+             url: url
             
-    //     }).then(function(newReleases) {
-    //         console.log(newReleases);
-    //     })
-    // }
+         }).then(function(newReleases) {
+             console.log(newReleases);
+         })
+     }
 
 
     this.getCurrentUser = function() {
@@ -63,5 +63,24 @@ app.service('homeService', function ($http) {
             return res.data;
         })
     }
-   
+    
+    this.auth = function() {
+        console.log(7)
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/isAuth'
+        }).then(function(success) {
+            return success;
+        }, function(err) {
+            if (err.status === 401) {
+                $state.go('login')
+            }
+            else {
+                console.log(err);
+            }
+        })
+    }
+    
 })
+
+
