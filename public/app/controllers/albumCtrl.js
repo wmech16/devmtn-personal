@@ -52,7 +52,7 @@ app.controller('albumCtrl', function ($scope, albumService, albumData, getCurren
        console.log('New review', res);
         albumService.getAlbumsReviews(albumData.id).then(function(res) {
           $scope.getAlbumsReviews = res.data.reviews;
-          console.log($scope.getAlbumReviews)
+          console.log(100, $scope.getAlbumReviews)
         })
     });
   };

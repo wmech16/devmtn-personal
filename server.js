@@ -2,7 +2,7 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
-var cors = require('cors');
+//var cors = require('cors');
 var mongoose = require('mongoose');
 var session = require('express-session');
 
@@ -62,7 +62,7 @@ passport.use(new SpotifyStrategy({
 }));
 var app = express();
 app.use(bodyParser.json());
-app.use(cors());
+//app.use(cors());
 app.use(session({
 	secret: 'super secret secret',
 	resave: true,

@@ -19,7 +19,7 @@ app.controller('profileCtrl', function ($scope, profileService, getReviews, home
             profileService.deleteReview(id).then(function(res) {
                 console.log('Review Deleted');
                 profileService.getUser(getCurrentUser._id).then(function(res) {
-                    $scope.getReviews = res.reviews;
+                    $scope.getReviews = res;
                 })
                 
             })
