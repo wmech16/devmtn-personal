@@ -137,7 +137,7 @@ app.get('/isAuth', ensureAuthenticated, function(req, res) {
 
 //CONNECTIONS 
 
-var port = config.PORT;
+var port = var port = process.env.PORT || config.port;
 var mongoURI = config.MONGO_URI;
 
 mongoose.set('debug', true);
