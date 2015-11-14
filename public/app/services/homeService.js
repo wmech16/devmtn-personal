@@ -43,13 +43,13 @@ app.service('homeService', function ($http, $state) {
 
 
     this.getCurrentUser = function() {
-        return $http.get('http://localhost:3000/currentUser')
+        return $http.get('currentUser')
     }
     
     this.getRecentReviews = function() {
         return $http({
             method: 'GET',
-            url: 'http://localhost:3000/review'
+            url: 'review'
         }).then(function(res) {
             return res.data;
         })
@@ -58,7 +58,7 @@ app.service('homeService', function ($http, $state) {
     this.getHighest = function() {
         return $http({
             method: 'GET',
-            url: 'http://localhost:3000/album'
+            url: 'album'
         }).then(function(res) {
             return res.data;
         })
@@ -68,7 +68,7 @@ app.service('homeService', function ($http, $state) {
         console.log(7)
         return $http({
             method: 'GET',
-            url: 'http://localhost:3000/isAuth'
+            url: 'isAuth'
         }).then(function(success) {
             return success;
         }, function(err) {

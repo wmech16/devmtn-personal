@@ -2,7 +2,7 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
-//var cors = require('cors');
+var cors = require('cors');
 var mongoose = require('mongoose');
 var session = require('express-session');
 
@@ -62,7 +62,7 @@ passport.use(new SpotifyStrategy({
 }));
 var app = express();
 app.use(bodyParser.json());
-//app.use(cors());
+app.use(cors());
 app.use(session({
 	secret: 'super secret secret',
 	resave: true,
@@ -137,7 +137,7 @@ app.get('/isAuth', ensureAuthenticated, function(req, res) {
 
 //CONNECTIONS 
 
-var port = var port = process.env.PORT || config.port;
+var port = config.PORT;
 var mongoURI = config.MONGO_URI;
 
 mongoose.set('debug', true);
@@ -147,7 +147,7 @@ mongoose.connection.once('open', function() {
 	console.log('Connected to Mongo DB at', mongoURI);
 });
 
-app.listen(port, function() {
+app.listen(process.env.PORT || port, function() {
 	console.log('Listening on port '+ port);
 });
 

@@ -34,7 +34,7 @@ var app = angular.module('musicProj').service('albumService', function($http) {
 		}
 		return $http({
 			method: 'POST',
-			url: 'http://localhost:3000/review/'+ albumReview.albumSpotifyId + '/' + userId,
+			url: 'review/'+ albumReview.albumSpotifyId + '/' + userId,
 			data:  albumReview
 		}).then(function(res) {
 			return res;
@@ -45,7 +45,7 @@ var app = angular.module('musicProj').service('albumService', function($http) {
 	this.getAlbumsReviews = function(albumSpotifyId) {
 		return $http({
 			method: 'GET',
-			url: 'http://localhost:3000/album/' + albumSpotifyId
+			url: 'album/' + albumSpotifyId
 		}).then(function(res) {
 			return res;
 		})
@@ -54,7 +54,7 @@ var app = angular.module('musicProj').service('albumService', function($http) {
 	this.getUserReviews = function(userId) {
 		return $http({
 			method: 'GET',
-			url: 'http://localhost:3000/user/' + userId
+			url: 'user/' + userId
 		}).then(function(res) {
 			return res;
 		})
@@ -64,7 +64,7 @@ var app = angular.module('musicProj').service('albumService', function($http) {
 		console.log(usersReview);
 		return $http({
 			method: 'PUT',
-			url: 'http://localhost:3000/review/'+ usersReview._id,
+			url: 'review/'+ usersReview._id,
 			data: {review: usersReview.review}
 		})
 	}
@@ -72,7 +72,7 @@ var app = angular.module('musicProj').service('albumService', function($http) {
 	this.getUser = function(userId) {
 		return $http ({
 			method: 'GET',
-			url: 'http://localhost:3000/users'+ userId
+			url: 'users'+ userId
 		}).then(function(res) {
 			console.log(11, res)
 			return res;

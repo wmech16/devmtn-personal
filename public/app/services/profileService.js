@@ -3,7 +3,7 @@ var app = angular.module('musicProj').service('profileService', function($http) 
 	this.getUser = function(userId) {
 		return $http ({
 			method: 'GET',
-			url: 'http://localhost:3000/users/'+ userId
+			url: 'users/'+ userId
 		}).then(function(res) {
 			console.log(11, res)
 			return res.data.reviews;
