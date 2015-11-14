@@ -33,8 +33,8 @@ passport.deserializeUser(function(obj, done) {
 });
 
 passport.use(new SpotifyStrategy({
-    clientID: appKey,
-    clientSecret: appSecret,
+    clientID: process.env.SP_KEY,
+    clientSecret: process.env.SP_SEC,
     callbackURL: "http://localhost:3000/auth/spotify/callback"
 }, function(accessToken, refreshToken, profile, done) {
 	console.log(11, profile);
