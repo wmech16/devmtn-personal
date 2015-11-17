@@ -147,9 +147,11 @@ mongoose.connection.once('open', function() {
 	console.log('Connected to Mongo DB at', mongoURI);
 });
 
-app.listen(process.env.PORT || port, function() {
+app.listen(port, function() {
 	console.log('Listening on port '+ port);
 });
+
+//process.env.PORT || 
 
 
 
